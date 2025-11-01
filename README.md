@@ -67,7 +67,7 @@ g++ -std=c++17 -municode -O2 *.cpp ^
 
 ---
 
-## Usage Example (`main.cpp`)
+## Usage Example
 ```
 int main()
 {
@@ -110,9 +110,9 @@ spy_start(
 
 ## Limitations
 
-- **Windows-only**
-- **UI structure dependent** — breaks if apps change `AutomationId` / ARIA roles
-- **Plaintext logs**
-- **Same session only** — no RDP/other user capture
-- **Mouse simulation issues** on high DPI or multi-monitor setups
+- Windows-only
+- UI structure dependent — breaks if apps change AutomationId / ARIA roles
+- Plaintext logs
+- Same session only — no RDP/other user capture
+- Mouse simulation issues on high DPI or multi-monitor setups
 
