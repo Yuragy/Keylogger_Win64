@@ -13,12 +13,12 @@ It captures **all text input**, **chat messages**, **URLs**, **credentials**, an
 |------------------------------|------------------------------------------------------------------------------|
 | **Global Keylogging**        | Intercepts `TextChanged` and `ValueProperty` via UIA                          |
 | **URL Monitoring**           | Firefox: finds `urlbar-input`, extracts full URL and domain                  |
-| **Web Chat Logging**         | WhatsApp/Slack (Firefox): detects `textbox` by ARIA role, logs **recipient + message** |
+| **Web Chat Logging**         | WhatsApp/Slack (Firefox): detects `textbox` by ARIA role, logs recipient + message |
 | **KeePass Password Extraction** | On entry selection: hides window, overlays gray screen, clicks "Copy Password", reads clipboard |
 | **Input Simulation**         | Moves mouse, sends clicks using `SetCursorPos` + `mouse_event`               |
-| **Targeted Monitoring**      | By **window name**, **PID**, or **entire desktop**                           |
-| **Stealth**                  | Uses **official accessibility APIs** — bypasses most anti-keyloggers         |
-| **Log Queue**                | Up to **20,000 lines**, non-blocking read via `spy_read_line_w()`            |
+| **Targeted Monitoring**      | By window name, PID, or entire desktop                           |
+| **Stealth**                  | Uses official accessibility API — bypasses most anti-keyloggers         |
+| **Log Queue**                | Up to 20,000 lines, non-blocking read via `spy_read_line_w()`            |
 | **C API**                    | `spy_start()`, `spy_stop()`, `spy_read_line_w()` — embeddable in any project |
 
 ---
@@ -26,12 +26,12 @@ It captures **all text input**, **chat messages**, **URLs**, **credentials**, an
 
 ### Requirements
 - **Windows 10/11**
-- **Visual Studio 2022** (or `cl.exe`)
-- **Windows SDK** (`uiautomationcore.dll`)
+- **Visual Studio 2022**
+- **Windows SDK**
 
 ### Compile (MSVC)
 
-```cmd
+```
 cl *.cpp ^
    /EHsc ^
    /MD ^
@@ -57,11 +57,11 @@ g++ -std=c++17 -municode -O2 *.cpp ^
 
 | Library                | Purpose                              |
 |------------------------|--------------------------------------|
-| `uiautomationcore.lib` | UI Automation API                    |
-| `ole32.lib`, `oleaut32.lib` | COM, BSTR, VARIANT              |
-| `user32.lib`           | Window enumeration, mouse input      |
-| `psapi.lib`            | Process module info                  |
-| **STL**                | `std::wstring`, `std::mutex`, `std::thread`, etc. |
+| uiautomationcore.lib | UI Automation API                    |
+| ole32.lib`, `oleaut32.lib | COM, BSTR, VARIANT              |
+| user32.lib           | Window enumeration, mouse input      |
+| psapi.lib            | Process module info                  |
+| STL                | std::wstring, std::mutex, std::thread. |
 
 > **No external dependencies** — pure WinAPI + STL
 
