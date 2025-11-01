@@ -67,7 +67,7 @@ g++ -std=c++17 -municode -O2 *.cpp ^
 
 ---
 
-## Usage Example
+## Usage
 ```
 int main()
 {
