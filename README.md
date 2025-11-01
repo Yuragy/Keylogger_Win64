@@ -21,6 +21,7 @@ It captures all text input, chat messages, URL, credentials, and decrypts KeePas
 | **Log Queue**                | Up to 20,000 lines, non blocking read via spy_read_line_w            |
 | **C API**                    | spy_start, spy_stop, spy_read_line_w embeddable in any project |
 
+---
 
 ### Demonstration of the result
 
