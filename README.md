@@ -3,7 +3,7 @@
 **DISCLAIMER**:  
 **This is a full-featured keylogger.**  
 It captures all text input, chat messages, URL, credentials, and decrypts KeePass passwords by simulating user actions and reading the clipboard.  
-**Use ONLY for legal purposes: security testing, auditing, debugging — with explicit user consent.**
+**Use ONLY for legal purposes: security testing, auditing, debugging with explicit user consent.**
 
 ---
 
@@ -12,14 +12,14 @@ It captures all text input, chat messages, URL, credentials, and decrypts KeePas
 | Feature                      | How It Works                                                                 |
 |------------------------------|------------------------------------------------------------------------------|
 | **Global Keylogging**        | Intercepts TextChanged and ValueProperty via UIA                          |
-| **URL Monitoring**           | Firefox: finds urlbar-input, extracts full URL and domain                  |
+| **URL Monitoring**           | Firefox: finds urlbar input, extracts full URL and domain                  |
 | **Web Chat Logging**         | WhatsApp/Slack Firefox: detects textbox by ARIA role, logs recipient + message |
 | **KeePass Password Extraction** | On entry selection: hides window, overlays gray screen, clicks "Copy Password", reads clipboard |
 | **Input Simulation**         | Moves mouse, sends clicks using SetCursorPos + mouse_event               |
 | **Targeted Monitoring**      | By window name, PID, or entire desktop                           |
-| **Stealth**                  | Uses official accessibility API — bypasses most anti-keyloggers         |
-| **Log Queue**                | Up to 20,000 lines, non-blocking read via spy_read_line_w            |
-| **C API**                    | spy_start, spy_stop, spy_read_line_w — embeddable in any project |
+| **Stealth**                  | Uses official accessibility API bypasses most anti-keyloggers         |
+| **Log Queue**                | Up to 20,000 lines, non blocking read via spy_read_line_w            |
+| **C API**                    | spy_start, spy_stop, spy_read_line_w embeddable in any project |
 
 ---
 ## Build Instructions STL + MSVC
@@ -109,9 +109,9 @@ spy_start(
 
 ## Limitations
 
-- Windows-only
-- UI structure dependent — breaks if apps change AutomationId / ARIA roles
+- Windows only
+- UI structure dependent breaks if apps change AutomationId / ARIA roles
 - Plaintext logs
-- Same session only — no RDP/other user capture
-- Mouse simulation issues on high DPI or multi-monitor setups
+- Same session only no RDP/other user capture
+- Mouse simulation issues on high DPI or multi monitor setups
 
