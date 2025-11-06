@@ -1,4 +1,4 @@
-# UI Spy — Keylogger Powered by Microsoft UI Automation
+# Keylogger
 
 **DISCLAIMER**:  
 **This is a full-featured keylogger.**  
